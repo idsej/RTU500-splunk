@@ -1,0 +1,84 @@
+event_id,event_name
+1110,Log-in successful
+1120,Log-in failed - Unknown user
+1140,Log-in failed - Wrong password
+1150,Log-in failed - Password expired
+1170,Log-in failed 3 times
+1210,Log-out (user logged out)
+1220,Log-out by user inactivity (timeout)
+1370,Viewed Security Event logs successfully
+1670,Viewed security event list failed
+1720,User Accounts reset to factory default
+2110,User account created successfully
+2120,User account deleted successfully
+2130,User account creation failed
+2140,User account deletion failed
+2160,New role assigned to user successfully
+2162,Permission added successfully
+2170,User role assignment removed successfully
+2172,User permission removed successfully
+2180,New role created successfully
+2190,Role deleted successfully
+2210,User password changed successfully
+2220,Change of user password failed
+2230,New user role assignment failed
+2232,Addition of permission failed
+2233,User Password change failed - too short
+2235,User Password change failed - policy check failed
+2240,User session role changed successfully
+2245,User session role change failed
+2270,Role assignment removal failed
+2272,User permission removed failed
+2280,New role creation failed
+2290,Role deletion failed
+2510,Password file on CF card corrupted
+3210,TCP communication with security log subscriber failed
+3220,Log data hash check failed (Log data altered)
+3430,Security log file deleted by system
+3710,CAM Server communication successful
+3810,CAM Server communication failed
+4310,VPN Connection successful
+4350,VPN Connection failed - Negotiation failed
+5110,Manual Reset
+5160,Gateway/RTU restarted
+6110,Test Mode started
+6120,Test Mode ended
+6130,Control operation performed successfully
+6132,Failed to perform a control operation
+6140,Signal forced - value changed
+6210,System time set manually successfully
+6310,System time set manually failed
+6510,Debug mode started successfully
+6520,Debug mode ended
+6550,Protocol logging mode started
+6560,Protocol logging mode ended
+8030,New certificate generated successfully
+8230,New certificate generation failed
+13200,Configuration transferred to the device successfully Covers all kind of configuration files
+13220,Configuration changed successfully
+13250,Entered configuration mode successfully
+13260,Exited configuration mode successfully
+13300,Configuration files read/exported from the device successfully
+13400,Firmware transferred to the device successfully
+13500,Firmware files read/exported from the device suc-
+13520,Certificates transferred to the device successfully
+13560,Exported/read archive file from the device success- Covers all kind of archive files fully
+13570,Exported/read diagnosis file from the device successfully
+13580,Exported/read certificates from device successfully Covers all kind of certificates
+13900,Security logs read/exported from the device successfully
+14200,Failed to transfer configuration to the device
+14220,Failed to change the configuration
+14250,Failed to enter configuration mode
+14260,Failed to exit configuration mode
+14300,Failed to read configuration files from the device
+14400,Failed to transfer firmware to the device
+14500,Failed to read firmware files from the device
+14520,Failed to transfer certificates to the device
+14560,Failed to read archive file from the device
+14570,Failed to read diagnosis file from the device
+14580,Failed to read certificates from the device
+14900,Failed to read security logs from the device
+23100,Password file transferred and stored in the device successfully
+23200,Password file read/exported from the device successfully
+23500,Failed to transfer password file to the device
+23600,Failed to read password file from the device
