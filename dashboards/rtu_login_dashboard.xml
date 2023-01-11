@@ -1,0 +1,121 @@
+<form theme="dark" version="1.0">
+  <label>RTU Login</label>
+  <fieldset submitButton="true" autoRun="true">
+    <input type="text" token="filter1" searchWhenChanged="true">
+      <label>Filter:</label>
+      <default>*</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Failed Login Events</title>
+      <input type="time" token="time1" searchWhenChanged="true">
+        <label></label>
+        <default>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </default>
+      </input>
+      <input type="multiselect" token="multi_select1" searchWhenChanged="true">
+        <label>Field Section:</label>
+        <choice value="_time">_time</choice>
+        <choice value="extracted_host">host</choice>
+        <choice value="rtu">user</choice>
+        <choice value="event_id">event_id</choice>
+        <default>user</default>
+        <delimiter>, </delimiter>
+      </input>
+      <table>
+        <search>
+          <query>index=rtu500 extracted_sourcetype="syslog"$filter1$ event_id=1120 OR event_id=1140 OR event_id=1150 OR event_id=1170 | fillnull value=* event_name | stats count by $multi_select1$ | lookup eventid.csv event_id as event_id OUTPUT event_name 
+| sort -count</query>
+          <earliest>$time1.earliest$</earliest>
+          <latest>$time1.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">10</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+    <panel>
+      <title>Successful Login Events</title>
+      <input type="time" token="time1" searchWhenChanged="true">
+        <label></label>
+        <default>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </default>
+      </input>
+      <input type="multiselect" token="multi_select1" searchWhenChanged="true">
+        <label>Field Section:</label>
+        <choice value="_time">_time</choice>
+        <choice value="extracted_host">host</choice>
+        <choice value="rtu">user</choice>
+        <choice value="event_id">event_id</choice>
+        <default>user</default>
+        <delimiter>, </delimiter>
+      </input>
+      <table>
+        <search>
+          <query>index=rtu500 extracted_sourcetype="syslog"$filter1$ event_id=1110 | lookup eventid.csv event_id as event_id OUTPUT event_name | fillnull value=* event_name | stats count by $multi_select1$ 
+| sort -count</query>
+          <earliest>$time1.earliest$</earliest>
+          <latest>$time1.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">10</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Privileged Account Events</title>
+      <input type="time" token="time1" searchWhenChanged="true">
+        <label></label>
+        <default>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </default>
+      </input>
+      <input type="multiselect" token="multi_select1" searchWhenChanged="true">
+        <label>Field Section:</label>
+        <choice value="_time">_time</choice>
+        <choice value="extracted_host">host</choice>
+        <choice value="rtu">user</choice>
+        <choice value="event_id">event_id</choice>
+        <default>user</default>
+        <delimiter>, </delimiter>
+      </input>
+      <table>
+        <search>
+          <query>index=rtu500 extracted_sourcetype="syslog"$filter1$ event_id=2* | fillnull value=* event_name | stats count by $multi_select1$ | lookup eventid.csv event_id as event_id OUTPUT event_name 
+| sort -count</query>
+          <earliest>$time1.earliest$</earliest>
+          <latest>$time1.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">10</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</form>
